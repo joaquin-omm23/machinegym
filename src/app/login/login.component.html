@@ -14,16 +14,45 @@
         aria-describedby="emailHelp"
         placeholder="Ingrese su correo electrónico"
       />
+      <div
+        *ngIf="
+          formularioLogin.controls['email'].invalid &&
+          formularioLogin.controls['email'].dirty
+        "
+        class="alert alert-danger"
+        role="alert"
+      >
+        <span *ngIf="formularioLogin.controls['email'].errors.required"
+          >Correo es requerido</span
+        >
+        <span *ngIf="formularioLogin.controls['email'].errors.email"
+          >Correo no es valido</span
+        >
+      </div>
     </div>
+
     <div class="mb-3">
-      <label for="password" class="form-label">Password</label>
+      <label for="password" class="form-label">Constraseña</label>
       <input
         type="password"
+        (keyUp.enter)="ingresar()"
         class="form-control"
         id="password"
         formControlName="password"
         placeholder="Ingrese su constraseña"
       />
+      <div
+        *ngIf="
+          formularioLogin.controls['password'].invalid &&
+          formularioLogin.controls['password'].dirty
+        "
+        class="alert alert-danger"
+        roler="alert"
+      >
+        <span *ngIf="formularioLogin.controls['password'].errors.required">
+          la contraseña es requerida</span
+        >
+      </div>
     </div>
 
     <button
@@ -35,4 +64,7 @@
       Ingresar
     </button>
   </form>
+  <div *ngIf="!datosCorrectos" class="alert alert-warning" role="alert">
+    {{ textoError }}
+  </div>
 </div>
