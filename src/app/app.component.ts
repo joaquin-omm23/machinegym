@@ -18,10 +18,4 @@ export class AppComponent {
     });
   }
 
-  login() {
-    this.auth.signInWithEmailAndPassword('test@gmail.com', 'test123');
-  }
-  logout() {
-    this.auth.signOut();
-  }
 }
