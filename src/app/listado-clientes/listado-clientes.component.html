@@ -1,68 +1,24 @@
 <div class="container mt-5">
   <h4>Listado de Clientes</h4>
 
-    <form action="" class="mb-5">
-        <div class="form-group">
-            <input class="form-control" type="text" placeholder="Busque un cliente">
-        </div>
-    </form>
+  <form action="" class="mb-5">
+    <div class="form-group">
+      <input class="form-control" type="text" placeholder="Busque un cliente" />
+    </div>
+  </form>
 
   <div class="row">
-    <div class="col-sm-3">
+    <div class="col-sm-3" *ngFor="let cliente of clientes">
       <div class="card">
-        <img
-          src="https://image.flaticon.com/icons/png/512/149/149071.png"
-          class="card-img-top imgCliente"
-          alt="..."
-        />
+        <img [src]="cliente.imgUrl" class="card-img-top imgCliente" />
         <div class="card-body">
-          <h5 class="card-title">Joaquin Moreno</h5>
+          <h5 class="card-title">
+            {{ cliente.nombre }} {{ cliente.apellido }}
+          </h5>
           <a href="#" class="card-link">Editar</a>
           <a href="#" class="card-link text-danger">Desactivar</a>
         </div>
       </div>
-    </div>
-    <div class="col-sm-3">
-        <div class="card">
-            <img
-              src="https://image.flaticon.com/icons/png/512/149/149071.png"
-              class="card-img-top imgCliente"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title">Gian Meneses</h5>
-              <a href="#" class="card-link">Editar</a>
-              <a href="#" class="card-link text-danger">Desactivar</a>
-            </div>
-          </div>
-    </div>
-    <div class="col-sm-3">
-        <div class="card">
-            <img
-              src="https://image.flaticon.com/icons/png/512/149/149071.png"
-              class="card-img-top imgCliente"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title">Miguel Ramirez</h5>
-              <a href="#" class="card-link">Editar</a>
-              <a href="#" class="card-link text-danger">Desactivar</a>
-            </div>
-          </div>
-    </div>
-    <div class="col-sm-3">
-        <div class="card">
-            <img
-              src="https://image.flaticon.com/icons/png/512/149/149071.png"
-              class="card-img-top imgCliente"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title">Roberto Palacios</h5>
-              <a href="#" class="card-link">Editar</a>
-              <a href="#" class="card-link text-danger">Desactivar</a>
-            </div>
-          </div>
     </div>
   </div>
 </div>
