@@ -160,11 +160,20 @@
       <br /><br />
     </div>
     <button
+      *ngIf = "!esEditable"
       class="btn btn-primary"
-      [disabled]="formularioCliente.invalid"
+      [disabled]="formularioCliente.invalid && !urlImagen"
       (click)="agregar()"
     >
       Agregar
+    </button>
+    <button
+      *ngIf = "esEditable"
+      class="btn btn-primary"
+      [disabled]="formularioCliente.invalid && !urlImagen"
+      (click)="editar()"
+    >
+      Editar
     </button>
   </form>
 </div>
