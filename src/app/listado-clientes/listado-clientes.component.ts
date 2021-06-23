@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Cliente } from '../models/cliente';
 
 @Component({
   selector: 'app-listado-clientes',
@@ -7,7 +8,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
   styleUrls: ['./listado-clientes.component.scss'],
 })
 export class ListadoClientesComponent implements OnInit {
-  clientes: any[] = new Array<any>();
+  clientes: Cliente[] = new Array<Cliente>();
   constructor(private db: AngularFirestore) { }
 
   ngOnInit(){
@@ -16,16 +17,15 @@ export class ListadoClientesComponent implements OnInit {
       this.clientes = resultado;
       console.log(resultado);
     })*/
-    this.clientes.length = 0;
+    
     this.db.collection('clientes').get().subscribe((resultado)=>{
       console.log(resultado.docs)
-
+      this.clientes.length = 0;
       resultado.docs.forEach((item)=>{
-
-        let cliente: any = item.data();
-        cliente.id = item.id
-        cliente.ref = item.ref
-        this.clientes.push(cliente)
+        let cliente: any = item.data()
+        cliente.id = item.id;
+        cliente.ref = item.ref;
+        this.clientes.push(cliente);
       })
 
     })

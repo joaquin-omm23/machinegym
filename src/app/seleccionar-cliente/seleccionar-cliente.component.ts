@@ -13,9 +13,9 @@ export class SeleccionarClienteComponent implements OnInit {
 
   ngOnInit() {
     this.db.collection<any>('clientes').get().subscribe((resultados)=>{
-      this.clientes.length = 0
+      this.clientes.length = 0;
       resultados.docs.forEach((item)=>{
-        let cliente: Cliente = item.data();
+        let cliente: any = item.data();
         cliente.id = item.id;
         cliente.ref = item.ref;
         cliente.visible = false;
@@ -25,8 +25,15 @@ export class SeleccionarClienteComponent implements OnInit {
   }
   
   buscarClientes(nombre: string){
-    console.log(nombre)
+    this.clientes.forEach((cliente)=>{
+      if(cliente.nombre.toLowerCase().includes(nombre.toLowerCase())){
+        cliente.visible= true;
+      }
+      else{
+        cliente.visible = false;
+      }
+    })
+  
   }
-
 
 }
