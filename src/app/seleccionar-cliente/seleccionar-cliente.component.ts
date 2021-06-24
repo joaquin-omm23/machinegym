@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Cliente } from '../models/cliente';
 
@@ -9,6 +9,7 @@ import { Cliente } from '../models/cliente';
 })
 export class SeleccionarClienteComponent implements OnInit {
   clientes: Cliente[] = new Array<Cliente>();
+  @Input('nombre') nombre: string;
   constructor(private db: AngularFirestore) { }
 
   ngOnInit() {
@@ -23,7 +24,9 @@ export class SeleccionarClienteComponent implements OnInit {
       })
     })
   }
-  
+
+ 
+  //funcion buscar clientes mediante el ingreso del input text, ojo:solo detecta nombres
   buscarClientes(nombre: string){
     this.clientes.forEach((cliente)=>{
       if(cliente.nombre.toLowerCase().includes(nombre.toLowerCase())){
@@ -33,7 +36,18 @@ export class SeleccionarClienteComponent implements OnInit {
         cliente.visible = false;
       }
     })
+  }
+
+  seleccionarCliente(cliente: Cliente){
+    this.nombre = cliente.nombre + ' ' + cliente.apellido;
+    this.clientes.forEach((cliente)=>{
+      cliente.visible = false;
+    })
+
+  }
   
+  cancelarCliente(){
+    this.nombre= undefined;
   }
 
 }
