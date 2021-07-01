@@ -12,6 +12,7 @@ export class Cliente{
     ref: DocumentReference;
     visible: boolean;
     constructor(){
-
+        this.nombre = "";
+        this.apellido = "";
     }
 }
