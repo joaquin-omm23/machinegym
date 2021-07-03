@@ -38,13 +38,13 @@
                 </div>
                 <button *ngIf="!esEditable" 
                     [disabled]="formularioPrecio.invalid" 
-                    class="btn btn-primary" 
+                    class="btn btn-primary mt-2" 
                     (click)= agregarPrecio()
                     >Agregar
                 </button>
                 <button *ngIf="esEditable" 
                     [disabled]="formularioPrecio.invalid" 
-                    class="btn btn-danger" 
+                    class="btn btn-danger mt-2" 
                     (click)= editarPrecio()
                     >Editar
                 </button>
