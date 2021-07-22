@@ -55,9 +55,11 @@
             <button class="btn btn-primary" (click)="guardar()" >Guardar</button>
         </div>
 
-        <div class="col-sm-6 ml-4">
-            <div *ngIf="clienteSeleccionado.imgUrl" class="imgCliente">
-                <img [src]="clienteSeleccionado.imgUrl" alt="">
+        <div class="col-sm-6 ml-4" id="lado-derecho" >
+            <div id="div-der">
+                <div *ngIf="clienteSeleccionado.imgUrl" class="imgCliente">
+                    <img  [src]="clienteSeleccionado.imgUrl" alt="imagen cliente">
+                </div>
             </div>
         </div>
     </div>
