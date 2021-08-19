@@ -1,31 +1,38 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col-sm-8">
-            <h4>Precios</h4>
-            <ul>
-                <li *ngFor= "let precio of precios" (click) = editarUnidad(precio)>
-                    <a>{{precio.nombre}}</a>
-                </li>
-            </ul>
+            <div id="der-div">
+                <div id="hijo">
+                    <h4 id="titulo-precio">LISTA DE PRECIOS:</h4>
+                    <br>
+                    <ul class="list">
+                        <li *ngFor= "let precio of precios" (click) = editarUnidad(precio)>
+                            <a>{{precio.nombre}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
         <div class="col-sm-4">
-            <h4>Agregar/Editar</h4>
+            <br>
+            <h4>AGREGAR / EDITAR:</h4>
+            <br>
             <form [formGroup]='formularioPrecio'>
                 <div class="form-group">
                     <label for="">Nombre</label>
                     <input formControlName="nombre" class="form-control" type="text">
                 </div>
-
+                <br>
                 <div class="form-group">
                     <label for="">Costo</label>
                     <input formControlName="costo" class="form-control" type="number">
                 </div>
-
+                <br>   
                 <div class="form-group">
                     <label for="">Duracion</label>
                     <input formControlName="duracion" class="form-control" type="number">
                 </div>
-
+                <br>
                 <div class="form-group">
                     <label for="">Tipo de Duración</label>
                     <select formControlName="tipoDuracion" class="form-control" name="" id="">
@@ -36,6 +43,7 @@
                         <option value="5">Año</option>
                     </select>
                 </div>
+                <br>
                 <button *ngIf="!esEditable" 
                     [disabled]="formularioPrecio.invalid" 
                     class="btn btn-primary mt-2" 
