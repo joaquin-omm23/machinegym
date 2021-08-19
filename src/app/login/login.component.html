@@ -6,6 +6,7 @@
   <form [formGroup]="formularioLogin">
     <div class="mb-3">
       <label for="email" class="form-label">Correo electrónico</label>
+      <br>
       <input
         type="email"
         class="form-control"
@@ -32,7 +33,8 @@
     </div>
 
     <div class="mb-3">
-      <label for="password" class="form-label">Constraseña</label>
+      <label for="password" class="form-label">Contraseña</label>
+      <br>
       <input
         type="password"
         (keyUp.enter)="ingresar()"
@@ -54,15 +56,17 @@
         >
       </div>
     </div>
-
-    <button
-      type="submit"
-      [disabled]="!formularioLogin.valid"
-      (click)="ingresar()"
-      class="btn btn-primary"
-    >
-      Ingresar
-    </button>
+    <div id="contenedor">
+      <button
+        type="submit"
+        [disabled]="!formularioLogin.valid"
+        (click)="ingresar()"
+       class="btn btn-primary"
+      >
+        Ingresar
+      </button>
+    </div>
+    
   </form>
   <div *ngIf="!datosCorrectos" class="alert alert-warning" role="alert">
     {{ textoError }}
