@@ -1,10 +1,9 @@
 <div class="container mt-5">
+    <div id="titulo-precio">LISTA DE PRECIOS</div>
     <div class="row">
         <div class="col-sm-8">
             <div id="der-div">
                 <div id="hijo">
-                    <h4 id="titulo-precio">LISTA DE PRECIOS:</h4>
-                    <br>
                     <ul class="list">
                         <li *ngFor= "let precio of precios" (click) = editarUnidad(precio)>
                             <a id="al">{{precio.nombre}}</a>
