@@ -75,9 +75,10 @@
           </div>
         </div>
       </div>
-
+      
       <div class="col-sm-4">
         <div class="form-group">
+          <br>
           <label for="">Cedula</label>
           <input
             type="text"
@@ -90,6 +91,7 @@
 
       <div class="col-sm-4">
         <div class="form-group">
+          <br>
           <label for="">Fecha de Nacimiento</label>
           <input
             type="date"
@@ -117,6 +119,7 @@
 
       <div class="col-sm-4">
         <div class="form-group">
+          <br>
           <label for="">Telefono</label>
           <input
             type="tel"
@@ -129,6 +132,7 @@
 
       <div class="col-sm-12">
         <div class="form-group">
+          <br><br>
           <label for="">Imagen</label>
           <input
             type="file"
@@ -159,21 +163,23 @@
 
       <br /><br />
     </div>
-    <button
-      *ngIf = "!esEditable"
-      class="btn btn-primary"
-      [disabled]="formularioCliente.invalid && !urlImagen"
-      (click)="agregar()"
-    >
-      Agregar
-    </button>
-    <button
-      *ngIf = "esEditable"
-      class="btn btn-primary"
-      [disabled]="formularioCliente.invalid && !urlImagen"
-      (click)="editar()"
-    >
-      Editar
-    </button>
+    <div id="contenedor-1">
+      <button
+        *ngIf = "!esEditable"
+        class="btn btn-primary"
+        [disabled]="formularioCliente.invalid && !urlImagen"
+        (click)="agregar()"
+      >
+        Agregar
+      </button>
+      <button 
+        *ngIf = "esEditable"
+        class="btn btn-primary"
+        [disabled]="formularioCliente.invalid && !urlImagen"
+        (click)="editar()"
+      >
+        Editar
+      </button>
+    </div>
   </form>
 </div>
